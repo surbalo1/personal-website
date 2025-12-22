@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rafael Gonzalez - Personal Website
 
-## Getting Started
+A modern, problem-driven personal engineering website built with Next.js 14.
 
-First, run the development server:
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Option 1: Vercel (Recommended - Free)
 
-## Learn More
+1. **Create a Vercel account** at [vercel.com](https://vercel.com)
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install Vercel CLI**:
+   ```bash
+   npm i -g vercel
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Deploy**:
+   ```bash
+   cd /Users/surbalo1/Downloads/website
+   vercel
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Follow the prompts**:
+   - Link to your Vercel account
+   - Choose project name (e.g., `rafael-gonzalez`)
+   - Accept default settings
 
-## Deploy on Vercel
+5. **Get your public URL**: `https://rafael-gonzalez.vercel.app` (or similar)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Option 2: GitHub Pages (Free, Static)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Create a GitHub repository** for your website
+
+2. **Push the code**:
+   ```bash
+   git remote add origin https://github.com/surbalo1/website.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+3. **Update `next.config.ts`** for static export:
+   ```ts
+   const nextConfig = {
+     output: 'export',
+     basePath: '/website', // your repo name
+   };
+   export default nextConfig;
+   ```
+
+4. **Build and deploy**:
+   ```bash
+   npm run build
+   # Push the 'out' folder to gh-pages branch
+   ```
+
+5. **Enable GitHub Pages** in repository settings
+
+### Option 3: Netlify (Free)
+
+1. **Connect GitHub repository** to Netlify
+2. **Build settings**:
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+3. **Deploy** - Netlify auto-deploys on every push
+
+## Project Structure
+
+```
+website/
+├── app/
+│   ├── layout.tsx      # Root layout with SEO metadata
+│   ├── page.tsx         # Main page composing all sections
+│   └── globals.css      # Design system and global styles
+├── components/
+│   ├── Navbar.tsx       # Fixed navigation
+│   ├── Hero.tsx         # Opening section with CTA
+│   ├── About.tsx        # Positioning statement
+│   ├── WhatISolve.tsx   # Problem types with evidence
+│   ├── HowIWork.tsx     # Engineering methodology
+│   ├── Experience.tsx   # Timeline with CPAR format
+│   ├── Projects.tsx     # Problem-solution cards
+│   ├── Skills.tsx       # Categorized competencies
+│   ├── Education.tsx    # Degrees and certifications
+│   ├── Contact.tsx      # Form and contact info
+│   └── Footer.tsx       # Footer with social links
+├── data/
+│   └── content.ts       # All website content (easy updates)
+└── public/
+    └── Rafael-Gonzalez-Resume.pdf
+```
+
+## Updating Content
+
+All content is centralized in `/data/content.ts`. To update:
+
+1. **Personal Info**: Edit `personalInfo` object
+2. **Experience**: Add/modify entries in `experience` array
+3. **Projects**: Update `projects` array
+4. **Skills**: Modify `skills` object
+5. **Education**: Edit `education` and `certifications` arrays
+
+## Contact Form
+
+The contact form uses [Formspree](https://formspree.io). To use your own:
+
+1. Create a free Formspree account
+2. Create a new form
+3. Replace the form URL in `/components/Contact.tsx`:
+   ```tsx
+   const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+   ```
+
+## Technologies
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Vanilla CSS with CSS Variables
+- **Font**: Inter (Google Fonts)
+- **Deployment**: Vercel / Netlify / GitHub Pages
+
+## License
+
+MIT

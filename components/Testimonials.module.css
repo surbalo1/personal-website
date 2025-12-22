@@ -1,0 +1,82 @@
+.testimonials {
+    background: var(--bg-primary);
+}
+
+.testimonialsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.testimonialCard {
+    background: var(--gradient-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.testimonialCard:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.quoteIcon {
+    color: var(--accent);
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+}
+
+.quote {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.author {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.authorLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.authorLink:hover {
+    color: var(--accent);
+}
+
+.authorLink:hover .authorName {
+    color: var(--accent);
+}
+
+.authorName {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-style: normal;
+    transition: color 0.2s ease;
+}
+
+.linkedInIcon {
+    color: #0a66c2;
+}
+
+.authorRole {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
