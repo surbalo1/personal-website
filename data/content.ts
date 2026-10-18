@@ -9,7 +9,6 @@ export const personalInfo = {
   location: "Mexico City",
   linkedin: "https://www.linkedin.com/in/rafael-glez-chong/",
   github: "https://github.com/surbalo1",
-  resumeUrl: "/Rafael-Gonzalez-Resume.pdf",
 };
 
 // Short line under the name in the hero.

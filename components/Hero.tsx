@@ -23,9 +23,6 @@ export default function Hero() {
                         <a href={personalInfo.linkedin} className="link" target="_blank" rel="noopener noreferrer">
                             LinkedIn
                         </a>
-                        <a href={personalInfo.resumeUrl} className="link" target="_blank" rel="noopener noreferrer">
-                            Resume
-                        </a>
                     </div>
                 </div>
 

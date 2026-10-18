@@ -20,8 +20,8 @@ export default function Navbar() {
                             {link.name}
                         </a>
                     ))}
-                    <a href={personalInfo.resumeUrl} className="nav-cta" target="_blank" rel="noopener noreferrer">
-                        Resume
+                    <a href={personalInfo.linkedin} className="nav-cta" target="_blank" rel="noopener noreferrer">
+                        LinkedIn
                     </a>
                 </div>
 

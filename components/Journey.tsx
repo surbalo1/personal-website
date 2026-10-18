@@ -9,8 +9,8 @@ export default function Journey() {
                         <p className="eyebrow">Journey</p>
                         <h2>From Chihuahua to Microsoft.</h2>
                     </div>
-                    <a href={personalInfo.resumeUrl} className="link" target="_blank" rel="noopener noreferrer">
-                        Full resume
+                    <a href={personalInfo.linkedin} className="link" target="_blank" rel="noopener noreferrer">
+                        More on LinkedIn
                     </a>
                 </div>
             </div>
