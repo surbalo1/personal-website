@@ -1,81 +1,76 @@
-"use client";
-
 import Image from "next/image";
-import { personalInfo } from "@/data/content";
-import TechBackground from "./TechBackground";
-import styles from "./Hero.module.css";
+import { hero, personalInfo, signalPath } from "@/data/content";
 
 export default function Hero() {
     return (
-        <section className={styles.hero} id="hero">
-            <div className={styles.backgroundGradient}></div>
-            <TechBackground />
-            <div className={`container ${styles.heroContent}`}>
-                <div className={styles.mainContent}>
-                    <div className={styles.textContent}>
-                        <p className={styles.greeting}>Hi, I'm</p>
-                        <h1 className={styles.name}>Rafael Gonzalez</h1>
-                        <p className={styles.title}>Electronics & Systems Engineer</p>
-                        <h2 className={styles.headline}>
-                            I bridge <span className={styles.highlight}>hardware</span> and <span className={styles.highlight}>software</span> to build validated systems that reduce technical risk.
-                        </h2>
+        <section className="hero" id="top">
+            <div className="container">
+                <div className="hero-grid">
+                    <div>
+                        <span className="status">
+                            <span className="pulse" aria-hidden="true" />
+                            {hero.eyebrow}
+                        </span>
+                        <h1>
+                            <span className="hero-name">{personalInfo.shortName}</span>
+                            {hero.headline}
+                        </h1>
+                        <p className="hero-intro">{hero.intro}</p>
 
-                        <div className={styles.cta}>
-                            <a
-                                href={personalInfo.resumeUrl}
-                                className="btn btn-primary btn-lg"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                    <polyline points="7 10 12 15 17 10" />
-                                    <line x1="12" y1="15" x2="12" y2="3" />
-                                </svg>
-                                Download Resume
+                        <div className="hero-cta">
+                            <a href="#contact" className="btn btn-primary">
+                                Get in touch
                             </a>
-                            <a href="#contact" className="btn btn-secondary btn-lg">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            <a href={personalInfo.linkedin} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                                LinkedIn
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                                    <path d="M7 17L17 7M8 7h9v9" />
                                 </svg>
-                                Let's Talk
                             </a>
                         </div>
 
-                        <div className={styles.quickStats}>
-                            <div className={styles.stat}>
-                                <span className={styles.statValue}>5+</span>
-                                <span className={styles.statLabel}>Technical Roles</span>
-                            </div>
-                            <div className={styles.stat}>
-                                <span className={styles.statValue}>3</span>
-                                <span className={styles.statLabel}>Countries</span>
-                            </div>
-                            <div className={styles.stat}>
-                                <span className={styles.statValue}>98%</span>
-                                <span className={styles.statLabel}>QA Yield</span>
-                            </div>
-                        </div>
+                        <dl className="hero-stats">
+                            {hero.stats.map((s) => (
+                                <div key={s.label}>
+                                    <dt>{s.label}</dt>
+                                    <dd>{s.value}</dd>
+                                </div>
+                            ))}
+                        </dl>
                     </div>
 
-                    <div className={styles.photoContainer}>
-                        <div className={styles.photoWrapper}>
+                    <div className="hero-photo">
+                        <figure className="photo-frame">
+                            <span className="corner tl" />
+                            <span className="corner tr" />
+                            <span className="corner bl" />
+                            <span className="corner br" />
                             <Image
                                 src="/rafael-traje.png"
-                                alt="Rafael Gonzalez - Electronics Engineer"
-                                width={300}
-                                height={300}
-                                className={styles.photo}
+                                alt="Portrait of Rafael Gonzalez"
+                                width={640}
+                                height={800}
+                                sizes="(max-width: 860px) 200px, 320px"
                                 priority
                             />
-                            <div className={styles.photoGlow}></div>
-                        </div>
+                            <figcaption>
+                                <span>fig. 01</span>
+                                <span>r. gonzalez</span>
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
 
-                <div className={styles.scrollIndicator}>
-                    <span>Explore</span>
-                    <div className={styles.scrollLine}></div>
+                <div className="path">
+                    <p className="path-label">{"// signal path: from the board to the cloud"}</p>
+                    <ol>
+                        {signalPath.map((step) => (
+                            <li key={step.label}>
+                                <strong>{step.label}</strong>
+                                <span>{step.detail}</span>
+                            </li>
+                        ))}
+                    </ol>
                 </div>
             </div>
         </section>

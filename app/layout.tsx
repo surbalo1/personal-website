@@ -1,75 +1,60 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-sans",
-});
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const mono = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--font-jetbrains" });
+
+const title = "Rafael Gonzalez | Cloud Solution Architect";
+const description =
+    "Cloud Solution Architect at Microsoft focused on Azure and AI, with a background in electronics, embedded systems and IoT.";
 
 export const metadata: Metadata = {
-  title: "Rafael Gonzalez | Electronics Engineer",
-  description:
-    "Electronics engineer specializing in embedded systems, hardware-software integration, and field validation. I turn unclear technical problems into working systems.",
-  keywords: [
-    "Electronics Engineer",
-    "Embedded Systems",
-    "IoT",
-    "Firmware Development",
-    "Hardware Integration",
-    "MSP430",
-    "ESP32",
-    "RSL10",
-  ],
-  authors: [{ name: "Rafael Ignacio Gonzalez Chong" }],
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
-  },
-  openGraph: {
-    title: "Rafael Gonzalez | Electronics Engineer",
-    description:
-      "Electronics engineer specializing in embedded systems, hardware-software integration, and field validation.",
-    url: "https://rafael-gonzalez.vercel.app",
-    siteName: "Rafael Gonzalez",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Rafael Gonzalez - Electronics Engineer",
-      },
+    metadataBase: new URL("https://rafael-gonzalez.vercel.app"),
+    title,
+    description,
+    keywords: [
+        "Cloud Solution Architect",
+        "Microsoft",
+        "Azure",
+        "AI",
+        "Generative AI",
+        "IoT",
+        "Embedded Systems",
+        "Rafael Gonzalez",
     ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Rafael Gonzalez | Electronics Engineer",
-    description:
-      "Electronics engineer specializing in embedded systems, hardware-software integration, and field validation.",
-    images: ["/og-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+    authors: [{ name: "Rafael Ignacio Gonzalez Chong" }],
+    icons: { icon: "/favicon.svg" },
+    openGraph: {
+        title,
+        description,
+        url: "/",
+        siteName: "Rafael Gonzalez",
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: title }],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["/og-image.png"],
+    },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className={inter.variable}>
-      <body>
-        {children}
-        <Analytics />
-      </body>
-    </html>
-  );
+export const viewport: Viewport = {
+    themeColor: "#0a0c0f",
+    colorScheme: "dark",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+    return (
+        <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+            <body>
+                {children}
+                <Analytics />
+            </body>
+        </html>
+    );
 }

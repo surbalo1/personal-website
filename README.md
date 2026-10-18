@@ -1,6 +1,6 @@
 # Rafael Gonzalez - Personal Website
 
-A modern, problem-driven personal engineering website built with Next.js 14.
+A modern, problem-driven personal engineering website built with Next.js.
 
 ## Quick Start
 
