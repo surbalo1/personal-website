@@ -1,26 +1,44 @@
-import { focusAreas } from "@/data/content";
+import { focusAreas, stats } from "@/data/content";
 import SectionHead from "./SectionHead";
 
+type Area = (typeof focusAreas)[number];
+
+function Tile({ area, className = "" }: { area: Area; className?: string }) {
+    return (
+        <article className={`tile reveal ${className}`}>
+            <h3>{area.title}</h3>
+            <p>{area.text}</p>
+        </article>
+    );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+    return (
+        <article className="tile stat span-2 reveal">
+            <div className="big">{value}</div>
+            <p>{label}</p>
+        </article>
+    );
+}
+
 export default function Focus() {
+    const [cloud, ai, advisory, edge] = focusAreas;
+
     return (
         <section className="section" id="focus">
-            <div className="container">
+            <div className="container wide">
                 <SectionHead
-                    index="01"
-                    label="focus"
-                    title="What I work on"
-                    intro="I sit between business and engineering: understanding what a team needs, then designing a solution that can actually be built, run and supported."
+                    eyebrow="What I do"
+                    title="Where business meets engineering."
+                    intro="I listen to what a team needs, then design a solution that can actually be built, run and supported."
                 />
-                <div className="section-body">
-                    <div className="focus-grid reveal">
-                        {focusAreas.map((area, i) => (
-                            <article key={area.title} className="focus-item">
-                                <span className="num">0{i + 1}</span>
-                                <h3>{area.title}</h3>
-                                <p>{area.text}</p>
-                            </article>
-                        ))}
-                    </div>
+                <div className="bento">
+                    <Tile area={cloud} className="span-4" />
+                    <Stat {...stats[0]} />
+                    <Tile area={ai} className="dark" />
+                    <Tile area={advisory} />
+                    <Stat {...stats[1]} />
+                    <Tile area={edge} className="span-4" />
                 </div>
             </div>
         </section>

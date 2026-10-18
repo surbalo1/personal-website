@@ -30,65 +30,48 @@ export default function Contact() {
         }
     };
 
-    const links = [
-        { label: "email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-        { label: "linkedin", value: "in/rafael-glez-chong", href: personalInfo.linkedin },
-        { label: "github", value: "github.com/surbalo1", href: personalInfo.github },
-    ];
-
     return (
-        <section className="section" id="contact">
+        <section className="section alt contact" id="contact">
             <div className="container">
                 <SectionHead
-                    index="06"
-                    label="contact"
-                    title="Let's talk"
-                    intro="Questions about cloud, AI or a project idea? Send me a message. I usually reply within a few days."
+                    eyebrow="Contact"
+                    title="Let's talk."
+                    intro="Questions about cloud, AI or a project idea? I'd love to hear from you."
                 />
-                <div className="contact-grid reveal">
-                    <ul className="contact-links">
-                        {links.map((l) => (
-                            <li key={l.label}>
-                                <a
-                                    href={l.href}
-                                    {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                                >
-                                    <span className="label">{l.label}</span>
-                                    <span className="value">{l.value}</span>
-                                    <span aria-hidden="true">→</span>
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <form className="form" onSubmit={onSubmit}>
-                        <label>
-                            name
-                            <input name="name" value={form.name} onChange={onChange} required autoComplete="name" />
-                        </label>
-                        <label>
-                            email
-                            <input type="email" name="email" value={form.email} onChange={onChange} required autoComplete="email" />
-                        </label>
-                        <label>
-                            message
-                            <textarea name="message" value={form.message} onChange={onChange} required rows={5} />
-                        </label>
-                        <div>
-                            <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
-                                {status === "sending" ? "Sending..." : "Send message"}
-                            </button>
-                        </div>
-                        <p className="form-status ok" role="status">
-                            {status === "success" && "Thanks! Your message was sent."}
-                        </p>
-                        {status === "error" && (
-                            <p className="form-status err" role="alert">
-                                Something went wrong. Please email me directly.
-                            </p>
-                        )}
-                    </form>
+                <div className="contact-actions reveal">
+                    <a href={`mailto:${personalInfo.email}`} className="btn btn-primary">
+                        Email me
+                    </a>
+                    <a href={personalInfo.linkedin} className="link" target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                    <a href={personalInfo.github} className="link" target="_blank" rel="noopener noreferrer">
+                        GitHub
+                    </a>
                 </div>
+
+                <form className="form" onSubmit={onSubmit}>
+                    <p className="form-title">Or send a message</p>
+                    <label>
+                        <span className="sr-only">Name</span>
+                        <input name="name" value={form.name} onChange={onChange} required autoComplete="name" placeholder="Name" />
+                    </label>
+                    <label>
+                        <span className="sr-only">Email</span>
+                        <input type="email" name="email" value={form.email} onChange={onChange} required autoComplete="email" placeholder="Email" />
+                    </label>
+                    <label>
+                        <span className="sr-only">Message</span>
+                        <textarea name="message" value={form.message} onChange={onChange} required rows={5} placeholder="Message" />
+                    </label>
+                    <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
+                        {status === "sending" ? "Sending..." : "Send"}
+                    </button>
+                    <p className={`form-status ${status === "error" ? "err" : "ok"}`} role="status">
+                        {status === "success" && "Thanks! Your message was sent."}
+                        {status === "error" && "Something went wrong. Please email me directly."}
+                    </p>
+                </form>
             </div>
         </section>
     );

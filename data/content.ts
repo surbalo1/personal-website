@@ -13,23 +13,19 @@ export const personalInfo = {
 };
 
 export const hero = {
-  eyebrow: "Cloud Solution Architect @ Microsoft",
-  headline: "I design cloud and AI solutions that hold up in the real world.",
+  eyebrow: "Cloud Solution Architect at Microsoft",
+  headline: "Cloud and AI.",
+  headlineMuted: "From the sensor to the model.",
   intro:
-    "I help organizations turn business goals into secure, scalable architectures on Azure, with a focus on AI. My background in electronics and embedded systems means I understand the whole stack, from the sensor on the board to the model in the cloud.",
-  stats: [
-    { value: "AI + Cloud", label: "Current focus" },
-    { value: "7", label: "Technical roles" },
-    { value: "3", label: "Countries worked in" },
-  ],
+    "I help organizations turn business goals into secure, scalable solutions on Azure, with a focus on AI. Years of hands-on electronics and embedded work mean I understand the whole stack.",
 };
 
-// The path from hardware to cloud, shown under the hero.
+// The path from hardware to cloud.
 export const signalPath = [
   { label: "Hardware", detail: "PCB, test, QA" },
   { label: "Firmware", detail: "C, MicroPython" },
   { label: "IoT", detail: "MQTT, LoRa, BLE" },
-  { label: "Cloud", detail: "Azure" },
+  { label: "Cloud", detail: "Microsoft Azure" },
   { label: "AI", detail: "LLMs, RAG, agents" },
 ];
 
@@ -40,7 +36,7 @@ export const focusAreas = [
   },
   {
     title: "AI solutions",
-    text: "Moving generative AI from demo to production: RAG, agents and responsible AI on Azure.",
+    text: "Taking generative AI from demo to production: RAG, agents and responsible AI on Azure.",
   },
   {
     title: "Technical advisory",
@@ -50,6 +46,11 @@ export const focusAreas = [
     title: "Edge to cloud",
     text: "Connecting devices, data and the cloud, drawing on years of hands-on IoT and embedded work.",
   },
+];
+
+export const stats = [
+  { value: "7", label: "technical roles, from the lab bench to the cloud" },
+  { value: "3", label: "countries where I have worked and studied: Mexico, Germany and the U.S." },
 ];
 
 export type Role = {
@@ -265,7 +266,7 @@ export const testimonial = {
 };
 
 export const navLinks = [
-  { name: "Focus", href: "#focus" },
+  { name: "About", href: "#focus" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Skills", href: "#skills" },

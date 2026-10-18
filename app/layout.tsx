@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
-const mono = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--font-jetbrains" });
 
 const title = "Rafael Gonzalez | Cloud Solution Architect";
 const description =
@@ -44,13 +43,13 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-    themeColor: "#0a0c0f",
-    colorScheme: "dark",
+    themeColor: "#ffffff",
+    colorScheme: "light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="en" className={`${inter.variable} ${mono.variable}`}>
+        <html lang="en" className={inter.variable}>
             <body>
                 {children}
                 <Analytics />

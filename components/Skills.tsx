@@ -3,20 +3,18 @@ import SectionHead from "./SectionHead";
 
 export default function Skills() {
     return (
-        <section className="section" id="skills">
+        <section className="section alt" id="skills">
             <div className="container">
-                <SectionHead index="04" label="skills" title="Toolbox" />
-                <div className="skills reveal">
+                <SectionHead eyebrow="Skills" title="Tech specs." />
+                <div className="specs reveal">
                     {skills.map((s) => (
-                        <div key={s.group} className="skill-row">
+                        <div key={s.group} className="spec">
                             <h3>{s.group}</h3>
-                            <div className="tags">
+                            <ul>
                                 {s.items.map((item) => (
-                                    <span key={item} className="tag">
-                                        {item}
-                                    </span>
+                                    <li key={item}>{item}</li>
                                 ))}
-                            </div>
+                            </ul>
                         </div>
                     ))}
                 </div>

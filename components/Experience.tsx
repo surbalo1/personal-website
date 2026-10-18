@@ -3,25 +3,26 @@ import SectionHead from "./SectionHead";
 
 export default function Experience() {
     return (
-        <section className="section" id="experience">
+        <section className="section alt" id="experience">
             <div className="container">
-                <SectionHead
-                    index="02"
-                    label="experience"
-                    title="From the lab bench to the cloud"
-                    intro="Hardware, firmware, field work and customer-facing roles, now brought together in cloud and AI architecture."
-                />
-                <ol className="timeline">
+                <SectionHead eyebrow="Experience" title="Every layer of the stack." />
+                <ol className="roles">
                     {experience.map((role) => (
                         <li key={`${role.company}-${role.period}`} className={`role reveal${role.current ? " current" : ""}`}>
-                            <div className="role-meta">
+                            <div className="role-when">
                                 {role.current && (
-                                    <div className="now">
-                                        <span className="pulse" aria-hidden="true" /> now
-                                    </div>
+                                    <>
+                                        <span className="badge">Current</span>
+                                        <br />
+                                    </>
                                 )}
-                                <div>{role.period}</div>
-                                {role.location && <div>{role.location}</div>}
+                                {role.period}
+                                {role.location && (
+                                    <>
+                                        <br />
+                                        {role.location}
+                                    </>
+                                )}
                             </div>
                             <div>
                                 <h3>{role.title}</h3>
@@ -32,13 +33,7 @@ export default function Experience() {
                                         <li key={h}>{h}</li>
                                     ))}
                                 </ul>
-                                <div className="tags">
-                                    {role.tags.map((t) => (
-                                        <span key={t} className="tag">
-                                            {t}
-                                        </span>
-                                    ))}
-                                </div>
+                                <p className="role-tags">{role.tags.join(" · ")}</p>
                             </div>
                         </li>
                     ))}

@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Path from "@/components/Path";
 import Focus from "@/components/Focus";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
@@ -14,6 +15,7 @@ export default function Home() {
             <Navbar />
             <main>
                 <Hero />
+                <Path />
                 <Focus />
                 <Experience />
                 <Projects />

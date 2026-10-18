@@ -1,20 +1,15 @@
 type Props = {
-    index: string;
-    label: string;
+    eyebrow?: string;
     title: string;
     intro?: string;
 };
 
-export default function SectionHead({ index, label, title, intro }: Props) {
+export default function SectionHead({ eyebrow, title, intro }: Props) {
     return (
         <header className="section-head reveal">
-            <span className="section-index">
-                {index} / {label}
-            </span>
-            <div>
-                <h2>{title}</h2>
-                {intro && <p>{intro}</p>}
-            </div>
+            {eyebrow && <p className="section-eyebrow">{eyebrow}</p>}
+            <h2>{title}</h2>
+            {intro && <p>{intro}</p>}
         </header>
     );
 }
