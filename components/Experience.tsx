@@ -1,44 +1,24 @@
 import { experience } from "@/data/content";
-import SectionHead from "./SectionHead";
 
 export default function Experience() {
     return (
-        <section className="section alt" id="experience">
-            <div className="container">
-                <SectionHead eyebrow="Experience" title="Every layer of the stack." />
-                <ol className="roles">
-                    {experience.map((role) => (
-                        <li key={`${role.company}-${role.period}`} className={`role reveal${role.current ? " current" : ""}`}>
-                            <div className="role-when">
-                                {role.current && (
-                                    <>
-                                        <span className="badge">Current</span>
-                                        <br />
-                                    </>
-                                )}
-                                {role.period}
-                                {role.location && (
-                                    <>
-                                        <br />
-                                        {role.location}
-                                    </>
-                                )}
-                            </div>
-                            <div>
-                                <h3>{role.title}</h3>
-                                <div className="role-company">{role.company}</div>
-                                <p className="role-summary">{role.summary}</p>
-                                <ul>
-                                    {role.highlights.map((h) => (
-                                        <li key={h}>{h}</li>
-                                    ))}
-                                </ul>
-                                <p className="role-tags">{role.tags.join(" · ")}</p>
-                            </div>
-                        </li>
-                    ))}
-                </ol>
-            </div>
+        <section className="block" id="work">
+            <h2>Work</h2>
+            <ol className="rows">
+                {experience.map((role) => (
+                    <li key={`${role.company}-${role.period}`} className="row">
+                        <span className="row-meta">{role.period}</span>
+                        <div>
+                            <h3>
+                                {role.title} <span className="at">· {role.company}</span>
+                                {role.current && <span className="now">Now</span>}
+                            </h3>
+                            <p>{role.summary}</p>
+                            {role.location && <p className="small">{role.location}</p>}
+                        </div>
+                    </li>
+                ))}
+            </ol>
         </section>
     );
 }

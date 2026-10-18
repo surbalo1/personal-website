@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-int
 
 const title = "Rafael Gonzalez | Cloud Solution Architect";
 const description =
-    "Cloud Solution Architect at Microsoft focused on Azure and AI, with a background in electronics, embedded systems and IoT.";
+    "Cloud Solution Architect at Microsoft in Mexico City. Azure and AI, with a background in electronics and embedded systems.";
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://rafael-gonzalez.vercel.app"),

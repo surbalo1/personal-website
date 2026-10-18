@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { personalInfo } from "@/data/content";
-import SectionHead from "./SectionHead";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -31,48 +30,37 @@ export default function Contact() {
     };
 
     return (
-        <section className="section alt contact" id="contact">
-            <div className="container">
-                <SectionHead
-                    eyebrow="Contact"
-                    title="Let's talk."
-                    intro="Questions about cloud, AI or a project idea? I'd love to hear from you."
-                />
-                <div className="contact-actions reveal">
-                    <a href={`mailto:${personalInfo.email}`} className="btn btn-primary">
-                        Email me
-                    </a>
-                    <a href={personalInfo.linkedin} className="link" target="_blank" rel="noopener noreferrer">
-                        LinkedIn
-                    </a>
-                    <a href={personalInfo.github} className="link" target="_blank" rel="noopener noreferrer">
-                        GitHub
-                    </a>
+        <section className="block" id="contact">
+            <h2>Contact</h2>
+            <p className="block-intro">
+                The easiest way to reach me is by email at{" "}
+                <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>, or you can leave a note here.
+            </p>
+            <form className="form" onSubmit={onSubmit}>
+                <div className="form-row">
+                    <label>
+                        Name
+                        <input name="name" value={form.name} onChange={onChange} required autoComplete="name" />
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" value={form.email} onChange={onChange} required autoComplete="email" />
+                    </label>
                 </div>
-
-                <form className="form" onSubmit={onSubmit}>
-                    <p className="form-title">Or send a message</p>
-                    <label>
-                        <span className="sr-only">Name</span>
-                        <input name="name" value={form.name} onChange={onChange} required autoComplete="name" placeholder="Name" />
-                    </label>
-                    <label>
-                        <span className="sr-only">Email</span>
-                        <input type="email" name="email" value={form.email} onChange={onChange} required autoComplete="email" placeholder="Email" />
-                    </label>
-                    <label>
-                        <span className="sr-only">Message</span>
-                        <textarea name="message" value={form.message} onChange={onChange} required rows={5} placeholder="Message" />
-                    </label>
-                    <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
-                        {status === "sending" ? "Sending..." : "Send"}
+                <label>
+                    Message
+                    <textarea name="message" value={form.message} onChange={onChange} required rows={4} />
+                </label>
+                <div className="form-foot">
+                    <button type="submit" className="btn" disabled={status === "sending"}>
+                        {status === "sending" ? "Sending…" : "Send"}
                     </button>
-                    <p className={`form-status ${status === "error" ? "err" : "ok"}`} role="status">
-                        {status === "success" && "Thanks! Your message was sent."}
-                        {status === "error" && "Something went wrong. Please email me directly."}
-                    </p>
-                </form>
-            </div>
+                    <span className={`form-status ${status === "error" ? "err" : ""}`} role="status">
+                        {status === "success" && "Thanks, I'll get back to you soon."}
+                        {status === "error" && "That didn't go through. Please email me instead."}
+                    </span>
+                </div>
+            </form>
         </section>
     );
 }

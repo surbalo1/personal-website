@@ -6,51 +6,17 @@ export const personalInfo = {
   title: "Cloud Solution Architect",
   company: "Microsoft",
   email: "rafael.glez.chong@gmail.com",
-  location: "Chihuahua, Mexico",
+  location: "Mexico City",
   linkedin: "https://www.linkedin.com/in/rafael-glez-chong/",
   github: "https://github.com/surbalo1",
   resumeUrl: "/Rafael-Gonzalez-Resume.pdf",
 };
 
-export const hero = {
-  eyebrow: "Cloud Solution Architect at Microsoft",
-  headline: "Cloud and AI.",
-  headlineMuted: "From the sensor to the model.",
-  intro:
-    "I help organizations turn business goals into secure, scalable solutions on Azure, with a focus on AI. Years of hands-on electronics and embedded work mean I understand the whole stack.",
-};
-
-// The path from hardware to cloud.
-export const signalPath = [
-  { label: "Hardware", detail: "PCB, test, QA" },
-  { label: "Firmware", detail: "C, MicroPython" },
-  { label: "IoT", detail: "MQTT, LoRa, BLE" },
-  { label: "Cloud", detail: "Microsoft Azure" },
-  { label: "AI", detail: "LLMs, RAG, agents" },
-];
-
-export const focusAreas = [
-  {
-    title: "Cloud architecture",
-    text: "Azure designs built for security, reliability and cost, following the Well-Architected Framework.",
-  },
-  {
-    title: "AI solutions",
-    text: "Taking generative AI from demo to production: RAG, agents and responsible AI on Azure.",
-  },
-  {
-    title: "Technical advisory",
-    text: "Workshops, architecture reviews and proofs of concept that help teams decide and deliver.",
-  },
-  {
-    title: "Edge to cloud",
-    text: "Connecting devices, data and the cloud, drawing on years of hands-on IoT and embedded work.",
-  },
-];
-
-export const stats = [
-  { value: "7", label: "technical roles, from the lab bench to the cloud" },
-  { value: "3", label: "countries where I have worked and studied: Mexico, Germany and the U.S." },
+// Short bio, written in first person. Each string is one paragraph.
+export const bio = [
+  "I work with teams that are building on Azure, mostly helping them figure out how to put AI to use in a way that holds up after the demo.",
+  "I didn't start in the cloud. My first job was as an electronics technician in Chihuahua, assembling and debugging IoT boards. From there I moved into firmware, QA, sales, field engineering in Germany, and systems integration. That path is why I still care about how things behave all the way down.",
+  "Outside of work I build small projects, mostly AI tools and the occasional piece of hardware.",
 ];
 
 export type Role = {
@@ -60,7 +26,6 @@ export type Role = {
   period: string;
   current?: boolean;
   summary: string;
-  highlights: string[];
   tags: string[];
 };
 
@@ -68,189 +33,137 @@ export const experience: Role[] = [
   {
     title: "Cloud Solution Architect",
     company: "Microsoft",
-    period: "2026 - Present",
+    location: "Mexico City",
+    period: "2026 – now",
     current: true,
-    summary: "Helping customers design, build and scale cloud and AI solutions on Azure.",
-    highlights: [
-      "Design Azure architectures aligned with customer business goals",
-      "Guide teams adopting generative AI, from proof of concept to production",
-      "Lead technical workshops, architecture reviews and enablement sessions",
-    ],
-    tags: ["Azure", "AI", "Solution Architecture"],
+    summary:
+      "Helping customers design and build cloud and AI solutions on Azure, through architecture reviews, workshops and proofs of concept.",
+    tags: ["Azure", "AI", "Architecture"],
   },
   {
     title: "Systems Integration Engineer",
     company: "IMTECH Desarrollos",
-    location: "Chihuahua, Mexico",
-    period: "Sep 2025 - Dec 2025",
-    summary: "Integrated embedded platforms (MSP430, RSL10) into customer-facing systems.",
-    highlights: [
-      "Turned customer and business needs into validation workflows and KPIs",
-      "Supported delivery and onboarding of junior engineers",
-    ],
-    tags: ["C", "MSP430", "RSL10", "UART / SPI / I2C"],
+    location: "Chihuahua",
+    period: "2025",
+    summary:
+      "Integrated MSP430 and RSL10 platforms into customer systems in C, set up validation workflows and helped onboard junior engineers.",
+    tags: ["C", "MSP430", "RSL10"],
   },
   {
     title: "Electrical Engineer Intern",
     company: "Balsas GmbH",
     location: "Erfurt, Germany",
-    period: "Jun 2025 - Jul 2025",
-    summary: "Residential electrical renovation projects under DIN VDE regulations.",
-    highlights: [
-      "Coordinated on-site work with customers, inspectors and contractors",
-      "Kept documentation and compliance ready for handover",
-    ],
-    tags: ["DIN VDE 0100", "DIN VDE 0105"],
+    period: "2025",
+    summary:
+      "Residential electrical renovations under DIN VDE rules. Lots of coordination with customers, inspectors and contractors.",
+    tags: ["DIN VDE"],
   },
   {
     title: "Solutions Engineer",
     company: "Fahr Electronic Systems",
-    location: "Chihuahua, Mexico",
-    period: "May 2024 - Jan 2025",
-    summary: "Built ESP32 IoT solutions with LoRa, BLE and OTA updates.",
-    highlights: [
-      "Delivered 5 production-ready prototypes with full documentation",
-      "Ran customer demos and turned requirements into working solutions",
-    ],
-    tags: ["ESP32", "MicroPython", "LoRa", "BLE", "OTA"],
+    location: "Chihuahua",
+    period: "2024 – 2025",
+    summary:
+      "Built ESP32 devices with LoRa, BLE and OTA updates, ran customer demos and shipped 5 prototypes with full documentation.",
+    tags: ["ESP32", "MicroPython", "LoRa", "BLE"],
   },
   {
     title: "QA Technician",
     company: "GM&T Engineering",
-    location: "Chihuahua, Mexico",
-    period: "Nov 2023 - May 2024",
-    summary: "Wiring harness validation to OEM and ISO TS 16949 standards.",
-    highlights: ["Kept a 98% first-pass yield", "Supported root-cause analysis with manufacturing"],
-    tags: ["ISO TS 16949", "Harness testing"],
+    location: "Chihuahua",
+    period: "2023 – 2024",
+    summary: "Validated automotive wiring harnesses to OEM and ISO TS 16949 standards, with a 98% first-pass yield.",
+    tags: ["ISO TS 16949"],
   },
   {
     title: "Sales Executive",
-    company: "STEREN Mexico",
-    location: "Chihuahua, Mexico",
-    period: "Jan 2023 - Nov 2023",
-    summary: "Advised customers on electronic products based on their technical needs.",
-    highlights: ["Raised repeat purchases by about 8% through consultative selling"],
-    tags: ["Consultative selling", "Pre-sales"],
+    company: "STEREN",
+    location: "Chihuahua",
+    period: "2023",
+    summary: "Helped customers pick the right electronics for what they were building. Repeat purchases went up about 8%.",
+    tags: ["Pre-sales"],
   },
   {
     title: "Electronics Technician",
     company: "Fahr Electronic Systems",
-    location: "Chihuahua, Mexico",
-    period: "Jan 2022 - Jun 2023",
-    summary: "Assembled and tested IoT PCB prototypes for field deployments.",
-    highlights: ["Cut field debugging time by 25%"],
-    tags: ["PCB", "Oscilloscope", "IoT"],
+    location: "Chihuahua",
+    period: "2022 – 2023",
+    summary: "Assembled and tested IoT prototypes for field pilots and cut debugging time on installs by about 25%.",
+    tags: ["PCB", "IoT"],
   },
 ];
 
 export type Project = {
   title: string;
-  category: "AI" | "IoT" | "Embedded";
   description: string;
-  impact: string;
   stack: string[];
   github: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "Pharmacy AI Automation",
-    category: "AI",
+    title: "Pharmacy AI automation",
     description:
-      "HIPAA-aware automation platform for independent pharmacies. Patient data is de-identified before any LLM call, and requests are routed by intent across chat, SMS, email and voice.",
-    impact: "Multi-channel intake with a full audit trail",
-    stack: ["Python", "FastAPI", "LLMs", "Webhooks"],
+      "Automation for independent pharmacies across chat, SMS, email and voice. Patient data is de-identified before anything reaches the LLM.",
+    stack: ["Python", "FastAPI", "LLMs"],
     github: "https://github.com/surbalo1/Pharmacy-AI-automation-system",
   },
   {
-    title: "AI Coaching Ecosystem",
-    category: "AI",
-    description:
-      "Full-stack platform combining multi-agent workflows, a RAG knowledge base, video processing and CRM automation behind one dashboard.",
-    impact: "Six modules, from outreach to a 24/7 RAG assistant",
-    stack: ["Python", "FastAPI", "React", "RAG", "Agents"],
+    title: "AI coaching platform",
+    description: "Multi-agent workflows, a RAG knowledge base and video processing behind one dashboard.",
+    stack: ["Python", "React", "RAG"],
     github: "https://github.com/surbalo1/ai-coaching-system",
   },
   {
-    title: "IoT Sensor Data Pipeline",
-    category: "IoT",
-    description:
-      "End-to-end pipeline for 50+ devices: MQTT ingestion, backend services and real-time dashboards.",
-    impact: "Latency from 5 min to under 1 s; no more manual collection",
-    stack: ["Node.js", "MQTT", "PostgreSQL", "Docker"],
+    title: "IoT sensor pipeline",
+    description: "MQTT ingestion and live dashboards for 50+ devices. Data went from 5 minutes behind to under a second.",
+    stack: ["Node.js", "MQTT", "PostgreSQL"],
     github: "https://github.com/surbalo1/iot-sensor-pipeline",
   },
   {
-    title: "Board Support Package",
-    category: "Embedded",
-    description:
-      "Hardware abstraction layer with one API for GPIO, UART, SPI and I2C across ESP32 and PIC18F4550.",
-    impact: "Firmware porting time cut by 40%",
-    stack: ["C", "MicroPython", "ESP32", "PIC18F"],
+    title: "Board support package",
+    description: "One API for GPIO, UART, SPI and I2C on both ESP32 and PIC18F4550, so firmware ports faster.",
+    stack: ["C", "MicroPython"],
     github: "https://github.com/surbalo1/embedded-bsp-esp32-pic18f",
   },
   {
-    title: "ESP32 AC Motor Controller",
-    category: "Embedded",
-    description: "PID-based AC motor speed control with encoder feedback.",
-    impact: "±1.5% speed accuracy",
-    stack: ["C++", "ESP32", "PID", "Power electronics"],
+    title: "AC motor controller",
+    description: "PID speed control on an ESP32 with encoder feedback, accurate to about ±1.5%.",
+    stack: ["C++", "ESP32"],
     github: "https://github.com/surbalo1/esp32-ac-motor-controller",
   },
   {
-    title: "Real-time Emotion Recognition",
-    category: "AI",
-    description: "Local facial emotion detection with no cloud dependency, built for HCI research.",
-    impact: "85% accuracy at under 100 ms",
-    stack: ["Python", "OpenCV", "Streamlit"],
+    title: "Emotion recognition",
+    description: "Real-time facial emotion detection that runs locally, built for a university HCI project.",
+    stack: ["Python", "OpenCV"],
     github: "https://github.com/surbalo1/real-time-emotion-recognition",
   },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
-  {
-    group: "Cloud & AI",
-    items: ["Microsoft Azure", "Azure AI Foundry", "Azure OpenAI", "RAG", "AI agents", "Well-Architected Framework"],
-  },
-  {
-    group: "Software & data",
-    items: ["Python", "FastAPI", "Node.js", "PostgreSQL", "Docker", "Git", "Linux", "pandas", "PyTorch", "TensorFlow"],
-  },
-  {
-    group: "IoT & connectivity",
-    items: ["MQTT", "REST APIs", "LoRa", "BLE", "OTA", "Cellular IoT"],
-  },
-  {
-    group: "Embedded & hardware",
-    items: ["C", "MicroPython", "FreeRTOS", "UART / SPI / I2C", "PCB & schematics", "Oscilloscope", "PLC test benches"],
-  },
-  {
-    group: "Ways of working",
-    items: ["Solution architecture", "Technical workshops", "Pre-sales", "Documentation", "Agile"],
-  },
-  {
-    group: "Languages",
-    items: ["Spanish (native)", "English (C1)", "German (A2)"],
-  },
+  { group: "Cloud & AI", items: ["Azure", "Azure AI Foundry", "Azure OpenAI", "RAG", "Agents"] },
+  { group: "Software", items: ["Python", "FastAPI", "Node.js", "PostgreSQL", "Docker", "Git", "Linux"] },
+  { group: "Hardware", items: ["C", "MicroPython", "FreeRTOS", "UART / SPI / I2C", "PCB design", "MQTT", "LoRa", "BLE"] },
+  { group: "Languages", items: ["Spanish", "English (C1)", "German (A2)"] },
 ];
 
 export const education = [
   {
+    degree: "B.Sc. Electronic Engineering",
+    institution: "Instituto Tecnológico de Chihuahua",
+    period: "2020 – 2024",
+    note: "Minor in intelligent embedded systems. IEEE student branch.",
+  },
+  {
     degree: "Global Summer Institute, Big Data & AI",
     institution: "University of Texas at Austin",
     period: "2025",
-    note: "120-hour program under a Fulbright COMEXUS scholarship.",
-  },
-  {
-    degree: "B.Sc. Electronic Engineering, minor in Intelligent Embedded Systems",
-    institution: "Chihuahua Institute of Technology",
-    period: "2020 - 2024",
-    note: "GPA 90.83/100. IEEE Student Branch and student society.",
+    note: "Fulbright COMEXUS scholarship.",
   },
 ];
 
 export const certifications = [
-  "Microsoft Azure Fundamentals (AZ-900)",
+  "Azure Fundamentals (AZ-900)",
   "Azure AI Essentials",
   "Power BI Essentials",
   "PMI Project Management Foundations",
@@ -266,9 +179,7 @@ export const testimonial = {
 };
 
 export const navLinks = [
-  { name: "About", href: "#focus" },
-  { name: "Experience", href: "#experience" },
+  { name: "Work", href: "#work" },
   { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];

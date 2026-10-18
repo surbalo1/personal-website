@@ -1,41 +1,42 @@
-import { certifications, education, testimonial } from "@/data/content";
-import SectionHead from "./SectionHead";
+import { certifications, education, skills, testimonial } from "@/data/content";
 
 export default function Education() {
     return (
-        <section className="section" id="education">
-            <div className="container wide">
-                <SectionHead eyebrow="Education" title="Always learning." />
-                <div className="edu-grid reveal">
-                    {education.map((e) => (
-                        <article key={e.degree} className="edu-card">
-                            <span className="when">{e.period}</span>
-                            <h3>{e.degree}</h3>
-                            <div className="where">{e.institution}</div>
+        <section className="block" id="background">
+            <h2>Background</h2>
+            <ol className="rows">
+                {education.map((e) => (
+                    <li key={e.degree} className="row">
+                        <span className="row-meta">{e.period}</span>
+                        <div>
+                            <h3>
+                                {e.degree} <span className="at">· {e.institution}</span>
+                            </h3>
                             <p>{e.note}</p>
-                        </article>
-                    ))}
-                    <article className="edu-card">
-                        <span className="when">Certifications</span>
-                        <ul>
-                            {certifications.map((c) => (
-                                <li key={c}>{c}</li>
-                            ))}
-                        </ul>
-                    </article>
-                </div>
+                        </div>
+                    </li>
+                ))}
+                <li className="row">
+                    <span className="row-meta">Certifications</span>
+                    <p>{certifications.join(", ")}</p>
+                </li>
+                {skills.map((s) => (
+                    <li key={s.group} className="row">
+                        <span className="row-meta">{s.group}</span>
+                        <p>{s.items.join(", ")}</p>
+                    </li>
+                ))}
+            </ol>
 
-                <blockquote className="quote reveal">
-                    <p>&ldquo;{testimonial.quote}&rdquo;</p>
-                    <footer>
-                        <a href={testimonial.linkedin} className="link" target="_blank" rel="noopener noreferrer">
-                            {testimonial.author}
-                        </a>
-                        <br />
-                        {testimonial.role}
-                    </footer>
-                </blockquote>
-            </div>
+            <figure className="quote">
+                <blockquote>&ldquo;{testimonial.quote}&rdquo;</blockquote>
+                <figcaption>
+                    <a href={testimonial.linkedin} target="_blank" rel="noopener noreferrer">
+                        {testimonial.author}
+                    </a>
+                    , {testimonial.role}
+                </figcaption>
+            </figure>
         </section>
     );
 }
