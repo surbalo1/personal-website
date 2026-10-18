@@ -14,86 +14,70 @@ export const personalInfo = {
 
 // Short line under the name in the hero.
 export const intro =
-  "I work with teams building on Azure, mostly helping them put AI to use in a way that holds up after the demo.";
+  "I help teams build on Azure and put AI to work in ways that hold up after the demo. Before the cloud, I spent years with a soldering iron in hand.";
 
-// "How I got here" paragraphs. Text inside **double asterisks** is highlighted.
-export const story = [
-  "I didn't start in the cloud. **My first job was as an electronics technician in Chihuahua,** assembling and debugging IoT boards for field pilots.",
-  "From there I moved into firmware, QA, sales, an electrical internship in Germany and systems integration. **Every step got me a little closer to the customer** and a little further up the stack.",
-  "Now I'm at Microsoft, and **I still care about how things behave all the way down.** In my free time I build small projects, mostly AI tools and the occasional piece of hardware.",
+// Little floating labels around the hero photo.
+export const heroChips = ["Azure", "AI agents", "IoT", "Mexico City"];
+
+// The "board to cloud" diagram.
+export const flow = [
+  { label: "Sensor", detail: "PCB & test" },
+  { label: "Firmware", detail: "C, MicroPython" },
+  { label: "Connectivity", detail: "MQTT, LoRa, BLE" },
+  { label: "Cloud", detail: "Azure" },
+  { label: "AI", detail: "LLMs, RAG, agents" },
 ];
 
-export type Role = {
-  title: string;
-  company: string;
-  location?: string;
-  period: string;
-  current?: boolean;
-  summary: string;
-  tags: string[];
-};
-
-export const experience: Role[] = [
+// Career told as chapters.
+export const journey = [
   {
-    title: "Cloud Solution Architect",
-    company: "Microsoft",
-    location: "Mexico City",
-    period: "2026 – now",
-    current: true,
-    summary:
-      "Helping customers design and build cloud and AI solutions on Azure, through architecture reviews, workshops and proofs of concept.",
-    tags: ["Azure", "AI", "Architecture"],
+    year: "2022",
+    place: "Chihuahua",
+    title: "Soldering IoT boards",
+    text: "First job as an electronics technician at Fahr. Assembling, testing and debugging prototypes for field pilots.",
+    color: "orange",
   },
   {
-    title: "Systems Integration Engineer",
-    company: "IMTECH Desarrollos",
-    location: "Chihuahua",
-    period: "2025",
-    summary:
-      "Integrated MSP430 and RSL10 platforms into customer systems in C, set up validation workflows and helped onboard junior engineers.",
-    tags: ["C", "MSP430", "RSL10"],
+    year: "2023",
+    place: "Chihuahua",
+    title: "Learning to listen",
+    text: "Sales at STEREN, then QA at GM&T with a 98% first-pass yield on automotive harnesses.",
+    color: "yellow",
   },
   {
-    title: "Electrical Engineer Intern",
-    company: "Balsas GmbH",
-    location: "Erfurt, Germany",
-    period: "2025",
-    summary:
-      "Residential electrical renovations under DIN VDE rules. Lots of coordination with customers, inspectors and contractors.",
-    tags: ["DIN VDE"],
+    year: "2024",
+    place: "Chihuahua",
+    title: "Engineer, officially",
+    text: "Finished my B.Sc. in Electronic Engineering and shipped five ESP32 prototypes with LoRa and BLE as a solutions engineer.",
+    color: "green",
   },
   {
-    title: "Solutions Engineer",
-    company: "Fahr Electronic Systems",
-    location: "Chihuahua",
-    period: "2024 – 2025",
-    summary:
-      "Built ESP32 devices with LoRa, BLE and OTA updates, ran customer demos and shipped 5 prototypes with full documentation.",
-    tags: ["ESP32", "MicroPython", "LoRa", "BLE"],
+    year: "2025",
+    place: "Erfurt, Germany",
+    title: "Working abroad",
+    text: "Electrical engineering internship at Balsas GmbH, working under German DIN VDE standards.",
+    color: "teal",
   },
   {
-    title: "QA Technician",
-    company: "GM&T Engineering",
-    location: "Chihuahua",
-    period: "2023 – 2024",
-    summary: "Validated automotive wiring harnesses to OEM and ISO TS 16949 standards, with a 98% first-pass yield.",
-    tags: ["ISO TS 16949"],
+    year: "2025",
+    place: "Austin, Texas",
+    title: "Fulbright summer",
+    text: "Big Data & AI program at UT Austin on a Fulbright COMEXUS scholarship. This is where AI clicked for me.",
+    color: "blue",
   },
   {
-    title: "Sales Executive",
-    company: "STEREN",
-    location: "Chihuahua",
-    period: "2023",
-    summary: "Helped customers pick the right electronics for what they were building. Repeat purchases went up about 8%.",
-    tags: ["Pre-sales"],
+    year: "2025",
+    place: "Chihuahua",
+    title: "Back home, closer to customers",
+    text: "Systems integration at IMTECH: MSP430 and RSL10 platforms in C, validation workflows and mentoring junior engineers.",
+    color: "pink",
   },
   {
-    title: "Electronics Technician",
-    company: "Fahr Electronic Systems",
-    location: "Chihuahua",
-    period: "2022 – 2023",
-    summary: "Assembled and tested IoT prototypes for field pilots and cut debugging time on installs by about 25%.",
-    tags: ["PCB", "IoT"],
+    year: "2026",
+    place: "Mexico City",
+    title: "Microsoft",
+    text: "Cloud Solution Architect. Helping teams design and build cloud and AI solutions on Azure.",
+    color: "purple",
   },
 ];
 
@@ -158,21 +142,6 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["Spanish", "English (C1)", "German (A2)"] },
 ];
 
-export const education = [
-  {
-    degree: "B.Sc. Electronic Engineering",
-    institution: "Instituto Tecnológico de Chihuahua",
-    period: "2020 – 2024",
-    note: "Minor in intelligent embedded systems. IEEE student branch.",
-  },
-  {
-    degree: "Global Summer Institute, Big Data & AI",
-    institution: "University of Texas at Austin",
-    period: "2025",
-    note: "Fulbright COMEXUS scholarship.",
-  },
-];
-
 export const certifications = [
   "Azure Fundamentals (AZ-900)",
   "Azure AI Essentials",
@@ -190,9 +159,7 @@ export const testimonial = {
 };
 
 export const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
+  { name: "Journey", href: "#journey" },
   { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];
