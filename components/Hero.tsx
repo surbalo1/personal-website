@@ -46,10 +46,10 @@ export default function Hero() {
                             <span className="corner bl" />
                             <span className="corner br" />
                             <Image
-                                src="/rafael-traje.png"
+                                src="/rafael-headshot.jpg"
                                 alt="Portrait of Rafael Gonzalez"
-                                width={640}
-                                height={800}
+                                width={900}
+                                height={900}
                                 sizes="(max-width: 860px) 200px, 320px"
                                 priority
                             />

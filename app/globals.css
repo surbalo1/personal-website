@@ -400,11 +400,9 @@ p {
 .photo-frame img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
   object-fit: cover;
-  object-position: 50% 40%;
   border-radius: var(--radius-sm);
-  filter: saturate(0.85);
 }
 
 .photo-frame figcaption {
