@@ -12,11 +12,15 @@ export const personalInfo = {
   resumeUrl: "/Rafael-Gonzalez-Resume.pdf",
 };
 
-// Short bio, written in first person. Each string is one paragraph.
-export const bio = [
-  "I work with teams that are building on Azure, mostly helping them figure out how to put AI to use in a way that holds up after the demo.",
-  "I didn't start in the cloud. My first job was as an electronics technician in Chihuahua, assembling and debugging IoT boards. From there I moved into firmware, QA, sales, field engineering in Germany, and systems integration. That path is why I still care about how things behave all the way down.",
-  "Outside of work I build small projects, mostly AI tools and the occasional piece of hardware.",
+// Short line under the name in the hero.
+export const intro =
+  "I work with teams building on Azure, mostly helping them put AI to use in a way that holds up after the demo.";
+
+// "How I got here" paragraphs. Text inside **double asterisks** is highlighted.
+export const story = [
+  "I didn't start in the cloud. **My first job was as an electronics technician in Chihuahua,** assembling and debugging IoT boards for field pilots.",
+  "From there I moved into firmware, QA, sales, an electrical internship in Germany and systems integration. **Every step got me a little closer to the customer** and a little further up the stack.",
+  "Now I'm at Microsoft, and **I still care about how things behave all the way down.** In my free time I build small projects, mostly AI tools and the occasional piece of hardware.",
 ];
 
 export type Role = {
@@ -95,6 +99,7 @@ export const experience: Role[] = [
 
 export type Project = {
   title: string;
+  category: "AI" | "IoT" | "Embedded";
   description: string;
   stack: string[];
   github: string;
@@ -103,6 +108,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Pharmacy AI automation",
+    category: "AI",
     description:
       "Automation for independent pharmacies across chat, SMS, email and voice. Patient data is de-identified before anything reaches the LLM.",
     stack: ["Python", "FastAPI", "LLMs"],
@@ -110,30 +116,35 @@ export const projects: Project[] = [
   },
   {
     title: "AI coaching platform",
+    category: "AI",
     description: "Multi-agent workflows, a RAG knowledge base and video processing behind one dashboard.",
     stack: ["Python", "React", "RAG"],
     github: "https://github.com/surbalo1/ai-coaching-system",
   },
   {
     title: "IoT sensor pipeline",
+    category: "IoT",
     description: "MQTT ingestion and live dashboards for 50+ devices. Data went from 5 minutes behind to under a second.",
     stack: ["Node.js", "MQTT", "PostgreSQL"],
     github: "https://github.com/surbalo1/iot-sensor-pipeline",
   },
   {
     title: "Board support package",
+    category: "Embedded",
     description: "One API for GPIO, UART, SPI and I2C on both ESP32 and PIC18F4550, so firmware ports faster.",
     stack: ["C", "MicroPython"],
     github: "https://github.com/surbalo1/embedded-bsp-esp32-pic18f",
   },
   {
     title: "AC motor controller",
+    category: "Embedded",
     description: "PID speed control on an ESP32 with encoder feedback, accurate to about ±1.5%.",
     stack: ["C++", "ESP32"],
     github: "https://github.com/surbalo1/esp32-ac-motor-controller",
   },
   {
     title: "Emotion recognition",
+    category: "AI",
     description: "Real-time facial emotion detection that runs locally, built for a university HCI project.",
     stack: ["Python", "OpenCV"],
     github: "https://github.com/surbalo1/real-time-emotion-recognition",
@@ -179,7 +190,9 @@ export const testimonial = {
 };
 
 export const navLinks = [
-  { name: "Work", href: "#work" },
+  { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
+  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ];

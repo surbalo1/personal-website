@@ -1,42 +1,41 @@
-import { certifications, education, skills, testimonial } from "@/data/content";
+import { certifications, education, testimonial } from "@/data/content";
+import SectionHead from "./SectionHead";
 
 export default function Education() {
     return (
-        <section className="block" id="background">
-            <h2>Background</h2>
-            <ol className="rows">
-                {education.map((e) => (
-                    <li key={e.degree} className="row">
-                        <span className="row-meta">{e.period}</span>
-                        <div>
-                            <h3>
-                                {e.degree} <span className="at">· {e.institution}</span>
-                            </h3>
+        <section className="section alt" id="education">
+            <div className="container wide">
+                <SectionHead title="Education" />
+                <div className="edu-grid reveal">
+                    {education.map((e) => (
+                        <article key={e.degree} className="edu-card">
+                            <span className="when">{e.period}</span>
+                            <h3>{e.degree}</h3>
+                            <div className="where">{e.institution}</div>
                             <p>{e.note}</p>
-                        </div>
-                    </li>
-                ))}
-                <li className="row">
-                    <span className="row-meta">Certifications</span>
-                    <p>{certifications.join(", ")}</p>
-                </li>
-                {skills.map((s) => (
-                    <li key={s.group} className="row">
-                        <span className="row-meta">{s.group}</span>
-                        <p>{s.items.join(", ")}</p>
-                    </li>
-                ))}
-            </ol>
+                        </article>
+                    ))}
+                    <article className="edu-card">
+                        <span className="when">Certifications</span>
+                        <ul>
+                            {certifications.map((c) => (
+                                <li key={c}>{c}</li>
+                            ))}
+                        </ul>
+                    </article>
+                </div>
 
-            <figure className="quote">
-                <blockquote>&ldquo;{testimonial.quote}&rdquo;</blockquote>
-                <figcaption>
-                    <a href={testimonial.linkedin} target="_blank" rel="noopener noreferrer">
-                        {testimonial.author}
-                    </a>
-                    , {testimonial.role}
-                </figcaption>
-            </figure>
+                <blockquote className="quote reveal">
+                    <p>&ldquo;{testimonial.quote}&rdquo;</p>
+                    <footer>
+                        <a href={testimonial.linkedin} className="link" target="_blank" rel="noopener noreferrer">
+                            {testimonial.author}
+                        </a>
+                        <br />
+                        {testimonial.role}
+                    </footer>
+                </blockquote>
+            </div>
         </section>
     );
 }
