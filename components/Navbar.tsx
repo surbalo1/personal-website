@@ -1,62 +1,40 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { navLinks, personalInfo } from "@/data/content";
-import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const handleNavClick = () => {
-        setIsMobileMenuOpen(false);
-    };
+    const [open, setOpen] = useState(false);
+    const close = () => setOpen(false);
 
     return (
-        <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
-            <div className={`container ${styles.navContainer}`}>
-                <a href="#" className={styles.logo}>
-                    <span className={styles.logoText}>RGC</span>
+        <nav className={`nav${open ? " open" : ""}`} aria-label="Main">
+            <div className="container wide nav-inner">
+                <a href="#top" className="logo" onClick={close}>
+                    {personalInfo.shortName}
                 </a>
 
-                <div className={`${styles.navLinks} ${isMobileMenuOpen ? styles.open : ""}`}>
+                <div className="nav-links" id="nav-links">
                     {navLinks.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className={styles.navLink}
-                            onClick={handleNavClick}
-                        >
+                        <a key={link.href} href={link.href} className="nav-link" onClick={close}>
                             {link.name}
                         </a>
                     ))}
-                    <a
-                        href={personalInfo.resumeUrl}
-                        className={`btn btn-primary ${styles.resumeBtn}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href={personalInfo.resumeUrl} className="nav-cta" target="_blank" rel="noopener noreferrer">
                         Resume
                     </a>
                 </div>
 
                 <button
-                    className={`${styles.mobileMenuBtn} ${isMobileMenuOpen ? styles.open : ""}`}
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Toggle menu"
+                    className="menu-btn"
+                    onClick={() => setOpen(!open)}
+                    aria-label={open ? "Close menu" : "Open menu"}
+                    aria-expanded={open}
+                    aria-controls="nav-links"
                 >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
+                        {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 9h16M4 15h16" />}
+                    </svg>
                 </button>
             </div>
         </nav>
